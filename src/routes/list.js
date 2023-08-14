@@ -4,6 +4,7 @@ const Areas = require('../models/Areas');
 const Alleys = require('../models/Alleys');
 const Zones = require('../models/Zones');
 const Lamps = require('../models/Lamps');
+const Files = require('../models/Files');
 
 const router = express.Router();
 router.get('/api/list/projects', async (req, res) => {
@@ -84,11 +85,13 @@ router.get('/api/list/lamp/:alley_id', async (req, res) => {
     const { alley_id } = req.params;
     const main = await Alleys.findOne({ _id: alley_id });
     const data = await Lamps.find({ alley_id }).sort({ name: 1 });
+    const files = await Files.find({ alley_id }).sort({ sequence: 1 });
     res.json({
       success: true,
       message: 'loh-bangkok-light-monitor',
       data,
       main,
+      files,
     });
   } catch (e) {
     res.status(500).json({

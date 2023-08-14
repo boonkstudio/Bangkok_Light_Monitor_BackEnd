@@ -6,7 +6,7 @@ const Files = mongoose.model('files', new Schema({
   node_id: { type: String, default: null },
   type: { type: String, default: null },
   lamp_id: { type: Schema.Types.ObjectId, default: null, ref: 'lamps' },
-  folder_id: { type: Schema.Types.ObjectId, default: null, ref: 'folders' },
+  alley_id: { type: Schema.Types.ObjectId, ref: 'alleys' },
   sequence: { type: Number, default: null },
   created_by: { type: String, default: null },
 }, {
