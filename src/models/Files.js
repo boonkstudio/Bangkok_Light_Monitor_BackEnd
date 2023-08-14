@@ -8,6 +8,7 @@ const Files = mongoose.model('files', new Schema({
   lamp_id: { type: Schema.Types.ObjectId, default: null, ref: 'lamps' },
   folder_id: { type: Schema.Types.ObjectId, default: null, ref: 'folders' },
   sequence: { type: Number, default: null },
+  created_by: { type: String, default: null },
 }, {
   timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }, versionKey: false,
 }));

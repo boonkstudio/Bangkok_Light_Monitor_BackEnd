@@ -63,6 +63,7 @@ router.post('/api/upload/file-one', async (req, res) => {
       return;
     }
     const _id = _.result(body, 'lamp_id', '');
+    const email = _.result(body, 'email', '');
     const lamp = await Lamps.findOne({ _id }).populate('folder_id').populate({
       path: 'alley_id',
       populate: {
@@ -113,6 +114,7 @@ router.post('/api/upload/file-one', async (req, res) => {
         node_id: _.result(_upload, 'file.id'),
         lamp_id: _id,
         sequence: lastSequence + 1,
+        created_by: email,
       });
     }
     fs.unlinkSync(fileName);
