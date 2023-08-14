@@ -1,6 +1,9 @@
 const express = require('express');
+
 const router = express.Router();
 const fs = require('fs');
+const Core = require('../utils/Core');
+
 const files = fs.readdirSync('./src/routes');
 
 files.forEach((file) => {
@@ -16,15 +19,6 @@ files.forEach((file) => {
       }
     });
   }
-});
-router.get('/', (req, res) => {
-    res.json({
-        status: true,
-        message: 'Herk Backend',
-        data: {
-        version: '1.0.0',
-        },
-    });
 });
 
 module.exports = router;
