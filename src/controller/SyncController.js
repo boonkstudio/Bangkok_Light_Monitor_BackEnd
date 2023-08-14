@@ -38,7 +38,7 @@ class SyncController {
   project = async (item) => {
     if (!_.result(item, 'folder_id')) {
       try {
-        const folder = await GoogleController.createFolder(item.name, '1xmCMALZonOiAFUQOo4z4YwRe1FBwPNWR');
+        const folder = await GoogleController.createFolder(item.name, process.env.GOOGLE_FOLDER_ROOT_ID);
         await Projects.findOneAndUpdate({ _id: item._id }, { $set: { folder_id: folder._id } });
       } catch (err) {
         // TODO(developer) - Handle error
