@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/api/sync/all', async (req, res) => {
-  const connect = new GoogleSheetController('13yDJuHptop20hYtN2l6NRdw3JMW1y3mmCUjPXVX-fbk');
+  const connect = new GoogleSheetController('1AnffHIOEhm2wALALux0YeOu7Hc12rrX8E9GEEmvXK1M');
   connect.setRange('โครงการ!A2:B');
   const project = await connect.get();
   connect.setRange('เขต!A2:B');
